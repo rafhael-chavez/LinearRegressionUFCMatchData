@@ -59,23 +59,45 @@ merged_df.fillna(0, inplace=True)
 # Seleccionar las caracteristicas relevantes y la etiqueta
 X = merged_df[['Height_F1', 'Weight_F1', 'Reach_F1', 'Wins_F1', 'Losses_F1', 'Draws_F1',
                'Height_F2', 'Weight_F2', 'Reach_F2', 'Wins_F2', 'Losses_F2', 'Draws_F2']]
-y = (merged_df['Fighter1'] == merged_df['Fighter1']).astype(int)  # Asegúrate de ajustar esta línea si tu variable de resultado es diferente
+y = (merged_df['Fighter1_Fighter2'] == merged_df['Fighter1']).astype(int)  # Asegúrate de ajustar esta línea si tu variable de resultado es diferente
 
-# Imprimir la cantidad de ejemplos
-print(len(X))
-print(len(y))
+
 
 # Escalar las caracteristicas
 sc = StandardScaler()
 X = sc.fit_transform(X)
 
-# Dividir los datos en conjuntos de entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+# Dividir los datos en conjuntos de entrenamiento y prueba 
+test_size = 0.3
+random_state = 42
+
+# Fijar la semilla para reproducibilidad
+np.random.seed(random_state)
+
+# Obtener el numero total de ejemplos
+num_samples = len(X)
+
+# Generar indices aleatorios para los datos
+indices = np.arange(num_samples)
+np.random.shuffle(indices)
+
+# Calcular el indice de separacion
+split_index = int(num_samples * (1 - test_size))
+
+# Dividir los indices en entrenamiento y pruebaa
+train_indices = indices[:split_index]
+test_indices = indices[split_index:]
+
+# Crear los conjuntos de entrenamiento y prueba
+X_train = X[train_indices]
+X_test = X[test_indices]
+y_train = y[train_indices]
+y_test = y[test_indices]
 
 # Inicializar theta
 theta = np.random.randn(len(X_train[0]) + 1, 1)
 
-# Añadir columna de 1s a X_train (para el término de sesgo)
+# Anadir columna de 1s a X_train (para el termino de sesgo)
 X_train_vect = np.c_[np.ones((len(X_train), 1)), X_train]
 
 # Funcion sigmoide
