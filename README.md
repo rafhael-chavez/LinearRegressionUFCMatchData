@@ -23,7 +23,7 @@ Puedes instalar los paquetes necesarios usando `pip`:
 
 ```bash
 pip install numpy pandas matplotlib seaborn scikit-learn
-
+```
 ### Entrenamiento del Modelo
 
 1. **Entrenamiento**: El script entrena un modelo de regresión logística con los datos procesados.
