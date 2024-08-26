@@ -3,6 +3,8 @@
 
 Este proyecto utiliza un modelo de regresión logística para predecir el resultado de las peleas de UFC basado en datos de luchadores y eventos.
 
+El proposito es una implementación de una técnica de aprendizaje automático desde cero, sin el uso de frameworks o librerías especializadas como Scikit-Learn, TensorFlow o PyTorch. La implementación se realiza utilizando solo herramientas básicas de Python.
+
 ## Contenido del Proyecto
 
 - **`ufc_fighters.csv`**: Datos de los luchadores de UFC, incluyendo atributos como altura, peso, alcance, y estadísticas de victorias, derrotas y empates.
