@@ -2,9 +2,8 @@ import numpy as np
 import pandas as pd
 import math
 import re
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
@@ -25,7 +24,7 @@ def weight_to_float(weight_str):
     match = re.match(r"(\d+\.?\d*) lbs\.", weight_str)
     if match:
         return float(match.group(1))
-    return np.nan
+    return np.nan   
 
 def reach_to_float(reach_str):
     if pd.isna(reach_str) or reach_str == '--':
@@ -61,8 +60,6 @@ X = merged_df[['Height_F1', 'Weight_F1', 'Reach_F1', 'Wins_F1', 'Losses_F1', 'Dr
                'Height_F2', 'Weight_F2', 'Reach_F2', 'Wins_F2', 'Losses_F2', 'Draws_F2']]
 y = (merged_df['Fighter1_Fighter2'] == merged_df['Fighter1']).astype(int)  # Asegúrate de ajustar esta línea si tu variable de resultado es diferente
 
-
-
 # Escalar las caracteristicas
 sc = StandardScaler()
 X = sc.fit_transform(X)
@@ -84,7 +81,7 @@ np.random.shuffle(indices)
 # Calcular el indice de separacion
 split_index = int(num_samples * (1 - test_size))
 
-# Dividir los indices en entrenamiento y pruebaa
+# Dividir los indices en entrenamiento y prueba
 train_indices = indices[:split_index]
 test_indices = indices[split_index:]
 
@@ -118,11 +115,11 @@ def log_regression(X, y, theta, alpha, epochs):
         if epoch % 100 == 0:
             print(f'epoch: {epoch} | avg_loss: {avg_loss}')
         avg_loss_list.append(avg_loss)
-    plt.plot(np.arange(1, epochs), avg_loss_list[1:], color='red')
-    plt.title('Funcion de Costo')
-    plt.xlabel('Epochs')
-    plt.ylabel('Costo')
-    plt.show()
+    # plt.plot(np.arange(1, epochs), avg_loss_list[1:], color='red')
+    # plt.title('Funcion de Costo')
+    # plt.xlabel('Epochs')
+    # plt.ylabel('Costo')
+    # plt.show()
     return theta
 
 # Entrenar el modelo
@@ -137,11 +134,11 @@ y_pred = y_pred.astype(int)
 
 # Mostrar la matriz de confusion
 cm = confusion_matrix(y_test, y_pred)
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-plt.xlabel('Predicted')
-plt.ylabel('Actual')
-plt.title('Matriz de Confusion')
-plt.show()
+# sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+# plt.xlabel('Predicted')
+# plt.ylabel('Actual')
+# plt.title('Matriz de Confusion')
+# plt.show()
 
 # Mostrar el reporte de clasificacion
 print(classification_report(y_test, y_pred))
