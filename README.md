@@ -24,10 +24,6 @@ Puedes instalar los paquetes necesarios usando `pip`:
 ```bash
 pip install numpy pandas matplotlib seaborn scikit-learn
 
-# Predicción de Resultados de Peleas de UFC
-
-Este proyecto tiene como objetivo predecir los resultados de peleas de UFC utilizando un modelo de regresión logística. A continuación se detallan los pasos para preparar los datos, entrenar el modelo, y evaluar su rendimiento.
-
 ## Uso
 
 ### Preparación de Datos
