@@ -24,14 +24,6 @@ Puedes instalar los paquetes necesarios usando `pip`:
 ```bash
 pip install numpy pandas matplotlib seaborn scikit-learn
 
-## Uso
-
-### Preparación de Datos
-
-1. **Carga de Datos**: El script `ufc_regresion_logistica.py` carga los datasets `ufc_fighters.csv` y `ufc_event_data.csv`.
-2. **Conversión de Datos**: Realiza la conversión de alturas, pesos y alcances a formatos numéricos.
-3. **Limpieza y Unión**: Limpia y une los datos basándose en el nombre completo del luchador.
-
 ### Entrenamiento del Modelo
 
 1. **Entrenamiento**: El script entrena un modelo de regresión logística con los datos procesados.
