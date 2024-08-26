@@ -39,9 +39,9 @@ Para ejecutar el script, simplemente corre:
 
 ```bash
 python ufc_regresion_logistica.py
-
+```
 
 ## Comparación con Investigación Previa
 
-En un estudio relacionado titulado ["Predicting UFC Fight Outcomes with Machine Learning"]([enlace-al-estudio](https://kth.diva-portal.org/smash/get/diva2:1878726/FULLTEXT01.pdf), se logró un porcentaje de aciertos del 60% utilizando un modelo similar pero con un conjunto de datos diferente. En comparación, nuestro modelo alcanzó una precisión del 51%.
+En un estudio relacionado titulado ["Predicting UFC Fight Outcomes with Machine Learning"]([enlace-al-estudio](https://kth.diva-portal.org/smash/get/diva2:1878726/FULLTEXT01.pdf), se logró un porcentaje de aciertos del 60% utilizando un modelo similar pero con un conjunto de datos diferente. En comparación, mi modelo alcanzó una precisión del 51%.
 
