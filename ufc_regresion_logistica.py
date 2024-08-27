@@ -58,7 +58,7 @@ merged_df.fillna(0, inplace=True)
 # Seleccionar las caracteristicas relevantes y la etiqueta
 X = merged_df[['Height_F1', 'Weight_F1', 'Reach_F1', 'Wins_F1', 'Losses_F1', 'Draws_F1',
                'Height_F2', 'Weight_F2', 'Reach_F2', 'Wins_F2', 'Losses_F2', 'Draws_F2']]
-y = (merged_df['Fighter1_Fighter2'] == merged_df['Fighter1']).astype(int)  # Asegúrate de ajustar esta línea si tu variable de resultado es diferente
+y = (merged_df['Fighter1_Fighter2'] == merged_df['Fighter1']).astype(int) 
 
 # Escalar las caracteristicas
 sc = StandardScaler()
@@ -103,24 +103,24 @@ def sigmoid_function(X):
 
 # Implementacion de la regresion logistica
 def log_regression(X, y, theta, alpha, epochs):
-    y_ = np.reshape(y, (len(y), 1))  # reshape a (n_samples, 1)
-    N = len(X)
-    avg_loss_list = []
-    for epoch in range(epochs):
-        sigmoid_x_theta = sigmoid_function(X.dot(theta))  # calcular hipotesis
-        grad = (1/N) * X.T.dot(sigmoid_x_theta - y_)  # gradiente
-        theta = theta - (alpha * grad)  # actualizar theta
-        hyp = sigmoid_function(X.dot(theta))  # calcular nueva hipotesis
-        avg_loss = -np.sum(np.dot(y_.T, np.log(hyp)) + np.dot((1-y_).T, np.log(1-hyp))) / len(hyp)
-        if epoch % 100 == 0:
+    y_ = np.reshape(y, (len(y), 1))  # reshape del vector y para tener dimensiones (n_samples, 1)
+    N = len(X)  # numero de muestras en X
+    avg_loss_list = []  # lista para almacenar la perdida promedio en cada epoch
+    for epoch in range(epochs):  # bucle que recorre cada epoch
+        sigmoid_x_theta = sigmoid_function(X.dot(theta))  # calcula la hipotesis usando la funcion sigmoide
+        grad = (1/N) * X.T.dot(sigmoid_x_theta - y_)  # calcula el gradiente para ajustar los parametros theta
+        theta = theta - (alpha * grad)  # actualiza los parametros theta usando la tasa de aprendizaje alpha
+        hyp = sigmoid_function(X.dot(theta))  # recalcula la hipotesis despues de actualizar theta
+        avg_loss = -np.sum(np.dot(y_.T, np.log(hyp)) + np.dot((1-y_).T, np.log(1-hyp))) / len(hyp)  # calcula la perdida promedio
+        if epoch % 1000 == 0:  # imprime la perdida cada 100 epochs
             print(f'epoch: {epoch} | avg_loss: {avg_loss}')
-        avg_loss_list.append(avg_loss)
-    # plt.plot(np.arange(1, epochs), avg_loss_list[1:], color='red')
-    # plt.title('Funcion de Costo')
-    # plt.xlabel('Epochs')
-    # plt.ylabel('Costo')
-    # plt.show()
-    return theta
+        avg_loss_list.append(avg_loss)  # anade la perdida promedio a la lista
+    # plt.plot(np.arange(1, epochs), avg_loss_list[1:], color='red')  # grafico de la funcion de costo
+    # plt.title('Funcion de Costo')  # titulo del grafico
+    # plt.xlabel('Epochs')  # etiqueta para el eje x
+    # plt.ylabel('Costo')  # etiqueta para el eje y
+    # plt.show()  # muestra el grafico
+    return theta  # devuelve los parametros theta optimizados
 
 # Entrenar el modelo
 epochs = 10000
@@ -128,9 +128,10 @@ alpha = 0.01
 theta = log_regression(X_train_vect, y_train, theta, alpha, epochs)
 
 # Hacer predicciones en el conjunto de prueba
-X_test_vect = np.c_[np.ones((len(X_test), 1)), X_test]
-y_pred = sigmoid_function(X_test_vect.dot(theta)) >= 0.5
-y_pred = y_pred.astype(int)
+X_test_vect = np.c_[np.ones((len(X_test), 1)), X_test]  # anadir una columna de unos a X_test para el termino independiente
+y_pred = sigmoid_function(X_test_vect.dot(theta)) >= 0.5  # calcular la hipotesis y convertir a 1 si es mayor o igual a 0.5
+y_pred = y_pred.astype(int)  # convertir las predicciones booleanas a enteros (0 o 1)
+
 
 # Mostrar la matriz de confusion
 cm = confusion_matrix(y_test, y_pred)
