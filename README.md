@@ -42,6 +42,22 @@ Para ejecutar el script, simplemente corre:
 ```bash
 python ufc_regresion_logistica.py
 ```
+## Documentación Adicional
+
+### 1. Normativa Asociada al Dataset
+
+He añadido un nuevo documento que detalla la normativa asociada al uso del dataset de peleadores de la UFC, considerando la protección de datos y la privacidad. Este documento cubre los requisitos de:
+
+- **Reglamento General de Protección de Datos (GDPR)**: Explica cómo se cumplen las normas establecidas por el GDPR para la protección de datos personales en Europa. Puedes revisar el documento [aquí](ruta/al/documento/normativa_dataset_gdpr.pdf).
+- **Ley de Privacidad del Consumidor de California (CCPA)**: Detalla el cumplimiento con la CCPA para la protección de datos en California. Puedes revisar el documento [aquí](ruta/al/documento/normativa_dataset_ccpa.pdf).
+
+### 2. Cumplimiento Normativo y Ético del Modelo
+
+También he añadido un documento que analiza cómo el modelo de regresión logística cumple con las normativas establecidas y los principios éticos. Este documento cubre:
+
+- La adecuación del modelo a las regulaciones del **GDPR** y **CCPA**.
+- Cómo el modelo evita sesgos y discrimina de manera justa.
+- Los escenarios en los que podría haber faltas éticas si el modelo es mal utilizado.
 
 ## Comparación con Investigación Previa
 
