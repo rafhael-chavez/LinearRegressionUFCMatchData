@@ -48,8 +48,8 @@ python ufc_regresion_logistica.py
 
 He añadido un nuevo documento que detalla la normativa asociada al uso del dataset de peleadores de la UFC, considerando la protección de datos y la privacidad. Este documento cubre los requisitos de:
 
-- **Reglamento General de Protección de Datos (GDPR)**: Explica cómo se cumplen las normas establecidas por el GDPR para la protección de datos personales en Europa. Puedes revisar el documento [aquí](ruta/al/documento/normativa_dataset_gdpr.pdf).
-- **Ley de Privacidad del Consumidor de California (CCPA)**: Detalla el cumplimiento con la CCPA para la protección de datos en California. Puedes revisar el documento [aquí](ruta/al/documento/normativa_dataset_ccpa.pdf).
+- **Reglamento General de Protección de Datos (GDPR)**: Explica cómo se cumplen las normas establecidas por el GDPR para la protección de datos personales en Europa. Puedes revisar el documento [aquí](https://gdpr-info.eu/).
+- **Ley de Privacidad del Consumidor de California (CCPA)**: Detalla el cumplimiento con la CCPA para la protección de datos en California. Puedes revisar el documento [aquí](https://oag.ca.gov/privacy/ccpa).
 
 ### 2. Cumplimiento Normativo y Ético del Modelo
 
